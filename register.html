@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Register — SafeTrip</title>
+  <link rel="stylesheet" href="index.css">
+  <style>
+    .form-box {
+      max-width: 500px;
+      margin: auto;
+      padding: 20px;
+    }
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 8px;
+      border: none;
+    }
+    #successBox {
+      display: none;
+      padding: 12px;
+      background: #10b981;
+      color: white;
+      margin-top: 10px;
+      border-radius: 8px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <div class="card form-box">
+    <h2>Emergency Registration</h2>
+
+    <input id="fullName" placeholder="Full Name" required>
+    <input id="age" placeholder="Age" required>
+    <select id="gender">
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
+    </select>
+
+    <input id="phone" placeholder="Phone Number" required>
+    <input id="blood" placeholder="Blood Group" required>
+    <input id="medical" placeholder="Medical Conditions">
+
+    <h3>Emergency Contact</h3>
+
+    <input id="emgName" placeholder="Contact Name" required>
+    <input id="emgPhone" placeholder="Contact Number" required>
+    <input id="relation" placeholder="Relationship" required>
+
+    <input id="imei" placeholder="IMEI Number" required>
+    <input id="address" placeholder="Home Address" required>
+
+    <h3>Optional</h3>
+    <input id="live" placeholder="Live Location (Optional)">
+    <input id="dest" placeholder="Travel Destination (Optional)">
+
+    <button class="btn btn-primary" id="save">Save</button>
+
+    <div id="successBox">Registration Complete — You're Protected!</div>
+
+    <button class="btn btn-ghost" onclick="window.location='sih.html'" style="margin-top:15px;">
+      Back to Home
+    </button>
+  </div>
+</div>
+
+<script>
+document.getElementById("save").addEventListener("click", () => {
+  const fields = [
+    "fullName","age","gender","phone","blood","medical",
+    "emgName","emgPhone","relation","imei","address","live","dest"
+  ];
+
+  fields.forEach(f => {
+    localStorage.setItem(f, document.getElementById(f).value);
+  });
+
+  document.getElementById("successBox").style.display = "block";
+});
+</script>
+
+</body>
+</html>
