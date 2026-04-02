@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SafeTrip — Tourist Safety (SIH Demo)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <div class="header">
+      <div class="brand">
+        <div class="logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+            <path d="M12 2L20 5V11C20 16 16 21 12 22C8 21 4 16 4 11V5L12 2Z" fill="white" opacity="0.95"/>
+            <circle cx="12" cy="9" r="2.2" fill="#071426"/>
+          </svg>
+        </div>
+        <div>
+          <div class="title">SafeTrip — Tourist Safety</div>
+          <div class="subtitle">SIH Demo • Works online + offline</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="small muted">Language</div>
+        <select id="lang">
+          <option value="en">English</option>
+          <option value="hi">हिन्दी</option>
+          <option value="kn">ಕನ್ನಡ</option>
+          <option value="te">తెలుగు</option>
+        </select>
+
+        <button class="btn btn-ghost" onclick="window.location='register.html'">Register</button>
+      </div>
+    </div>
+
+    <!-- Main Grid -->
+    <div class="grid">
+      <div class="card">
+        <div class="hero">
+
+          <div class="hero-left">
+            <h1 class="h1" id="headline">Stay safe. Explore fearlessly.</h1>
+
+            <p class="lead" id="lead">
+              A simple SIH app — digital ID, smart geo-fencing, wearables, offline edge AI and instant alerts.
+            </p>
+
+            <div class="cta-row">
+              <button class="btn btn-primary" id="simulateBtn">Simulate Walk</button>
+              <button class="btn btn-ghost" id="toggleOffline">Toggle Offline Mode</button>
+              <div class="tiny muted" id="modeBadge">Mode: <span class='kbd'>Online</span></div>
+            </div>
+
+            <div class="status">
+              <div class="pulse" id="wearablePulse"></div>
+              <div id="wearableText">Wearable connected</div>
+            </div>
+          </div>
+
+          <!-- Phone UI -->
+          <div class="phone right-panel card">
+            <div class="topbar"><div class="pill"></div></div>
+            <div class="screen">
+              <div class="map">
+                <svg id="mapSvg" viewBox="0 0 400 260" preserveAspectRatio="none">
+                  <circle id="geofence" cx="200" cy="130" r="80"></circle>
+                  <g id="marker">
+                    <circle cx="200" cy="60" r="8"></circle>
+                    <circle cx="200" cy="60" r="16"></circle>
+                  </g>
+                </svg>
+                <div id="coords">23.456, 76.345</div>
+              </div>
+
+              <div>
+                Fence status: <strong id="fenceStatus">Inside</strong>
+              </div>
+
+              <div>
+                <button class="btn btn-primary" id="sos">SOS</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="card">
+        <div class="feature">
+          <div class="f-icon">📡</div>
+          <div>
+            <div class="f-title" id="f1">GPS + Geo-fencing</div>
+            <div class="f-desc" id="f1d">Safe zones; instant alert when boundary crossed.</div>
+          </div>
+        </div>
+
+        <div class="feature">
+          <div class="f-icon">⚡</div>
+          <div>
+            <div class="f-title" id="f2">Offline Fallback</div>
+            <div class="f-desc" id="f2d">Works even with no internet using edge AI + local mesh.</div>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+
+  <!-- Toast -->
+  <div class="toast" id="toast">
+    <div id="toastTitle">Alert</div>
+    <div id="toastBody">You have crossed the safe boundary</div>
+  </div>
+
+  <script src="index.js"></script>
+</body>
+</html>
